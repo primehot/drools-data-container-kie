@@ -1,4 +1,4 @@
-package com.sample
+package com.myspace.drools_data_container_kie
  
 import com.sample.Message;
 
