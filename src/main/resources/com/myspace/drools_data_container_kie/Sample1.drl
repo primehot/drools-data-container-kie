@@ -1,0 +1,26 @@
+package com.myspace.drools_data_container_kie
+ 
+import com.sample.Message;
+
+rule "Init"
+    when
+    then
+        System.out.println( "Init rule fired! New one new");
+end
+ 
+rule "Hello World"
+    when
+        m : Message( status == 'Message.HELLO', myMessage : message )
+    then
+        System.out.println( myMessage );
+        m.setMessage( "Goodbye cruel world" );
+        m.setStatus( Message.GOODBYE );
+        update( m );
+end
+
+rule "GoodBye"
+    when
+        Message( status == 'Message.GOODBYE', myMessage : message )
+    then
+        System.out.println( myMessage );
+end
